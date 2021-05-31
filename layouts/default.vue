@@ -6,10 +6,11 @@
     <Nuxt />
   </div>
 </template>
+
 <script>
-import AppHeader from "../components/layouts/AppHeader"
-import AppMenu from "../components/layouts/AppMenu"
-import AppFooter from "../components/layouts/AppFooter"
+import AppHeader from "../components/AppHeader"
+import AppMenu from "../components/AppMenu"
+import AppFooter from "../components/AppFooter"
 export default {
   components: {
     AppHeader,
@@ -18,6 +19,7 @@ export default {
   }
 }
 </script>
+
 <style>
 html {
   font-family:

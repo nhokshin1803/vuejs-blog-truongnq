@@ -1,25 +1,26 @@
 <template>
   <div class="container vue-page">
-    <AppHeader></AppHeader>
-    <AppMenu></AppMenu>
-    <ListSearch :show="true"></ListSearch>
-    <AppFooter></AppFooter>
+    <div class="row list-search" style="margin: 0, padding: 0, width: 100%">
+      <BlogSearch></BlogSearch>
+      <BlogList></BlogList>
+    </div>
   </div>
 </template>
 
 <script>
-import AppFooter from "../../components/layouts/AppFooter.vue";
-import AppMenu from "../../components/layouts/AppMenu.vue";
-import AppHeader from "../../components/layouts/AppHeader.vue";
-import BlogList from "../../components/BlogList.vue";
-import ListSearch from "../../components/ListSearch.vue";
+import BlogSearch from "../../components/page/BlogSearch";
+import BlogList from "../../components/page/BlogList";
 export default {
   components: {
-    AppMenu,
-    AppFooter,
-    BlogList,
-    AppHeader,
-    ListSearch
+    BlogSearch,
+    BlogList
+  },
+
+  data() {
+    return {
+      postList: new Array()
+    };
+
   },
 };
 </script>
@@ -29,6 +30,17 @@ export default {
   margin: 0;
   padding: 0;
   min-width: 100%;
+}
+
+.list-search {
+  position: relative;
+  left: 16.66667%;
+  top: 3rem;
+  width: 83.3333%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 1rem 1rem 4rem 1rem !important;
+  background-color: #e4e5e6;
 }
 
 </style>

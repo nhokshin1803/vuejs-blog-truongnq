@@ -2,22 +2,25 @@
   <div class="container vue-page">
     <div class="background">
       <div>
-        <h5>New Blogs</h5>
+        <h5>Edit Blogs</h5>
       </div>
-      <BlogFormCreateEdit></BlogFormCreateEdit>
+      <BlogFormCreateEdit :paramId="paramId"></BlogFormCreateEdit>
     </div>
   </div>
 </template>
 
 <script>
 import BlogFormCreateEdit from "../../components/page/BlogFormCreateEdit.vue";
+
 export default {
-  methods: {
+  data () {
+    return {
+      paramId: this.$route.params.id
+    }
   },
-  props: {},
   components: {
     BlogFormCreateEdit
-  }
+  },
 };
 </script>
 

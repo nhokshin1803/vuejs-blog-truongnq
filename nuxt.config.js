@@ -45,15 +45,16 @@ export default {
     ],
     axios: {
         // proxy: true
+        baseURL: 'http://localhost:3000/'
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
     router: {
         routes: [{
-                name: 'posts-id',
-                path: 'blogs/posts/:id?',
-                component: 'pages/posts/_id.vue'
+                name: 'blogs-id',
+                path: 'blogs/:id?',
+                component: 'pages/blogs/_id.vue'
             },
             {
                 name: 'list',

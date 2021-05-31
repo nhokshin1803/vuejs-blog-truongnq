@@ -1,26 +1,20 @@
 {
-  "BlogList": {
-    "description": "Auto imported from components/BlogList.vue"
+  "AppFooter": {
+    "description": "Auto imported from components/AppFooter.vue"
   },
-  "BlogSearch": {
-    "description": "Auto imported from components/BlogSearch.vue"
+  "AppHeader": {
+    "description": "Auto imported from components/AppHeader.vue"
   },
-  "ListSearch": {
-    "description": "Auto imported from components/ListSearch.vue"
+  "AppMenu": {
+    "description": "Auto imported from components/AppMenu.vue"
   },
-  "Logo": {
-    "description": "Auto imported from components/Logo.vue"
+  "PageBlogFormCreateEdit": {
+    "description": "Auto imported from components/page/BlogFormCreateEdit.vue"
   },
-  "NewBlog": {
-    "description": "Auto imported from components/NewBlog.vue"
+  "PageBlogList": {
+    "description": "Auto imported from components/page/BlogList.vue"
   },
-  "LayoutsAppFooter": {
-    "description": "Auto imported from components/layouts/AppFooter.vue"
-  },
-  "LayoutsAppHeader": {
-    "description": "Auto imported from components/layouts/AppHeader.vue"
-  },
-  "LayoutsAppMenu": {
-    "description": "Auto imported from components/layouts/AppMenu.vue"
+  "PageBlogSearch": {
+    "description": "Auto imported from components/page/BlogSearch.vue"
   }
 }

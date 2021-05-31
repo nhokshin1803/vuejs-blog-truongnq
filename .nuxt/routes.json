@@ -21,11 +21,11 @@
     "_name": "_5f084483"
   },
   {
-    "name": "posts-id",
-    "path": "/posts/:id?",
-    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\posts\\\\_id.vue",
-    "chunkName": "pages/posts/_id",
-    "_name": "_345a4d26"
+    "name": "blogs-id",
+    "path": "/blogs/:id?",
+    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\blogs\\\\_id.vue",
+    "chunkName": "pages/blogs/_id",
+    "_name": "_11c515ef"
   },
   {
     "name": "index",
