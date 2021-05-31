@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     search: function() {
-      this.$root.$emit('change_search', this.searchKey);
+      this.$emit('searchKeyChanged', this.searchKey);
     }
   }
 };

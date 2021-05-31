@@ -1,22 +1,15 @@
 <template>
   <div class="container vue-page">
-    <AppHeader></AppHeader>
-    <AppMenu></AppMenu>
     <div class="background">
       <div>
         <h5>Edit Blogs</h5>
       </div>
       <NewBlog :paramId="paramId"></NewBlog>
     </div>
-    <AppFooter></AppFooter>
   </div>
 </template>
 
 <script>
-import AppFooter from "../../components/AppFooter.vue";
-import AppMenu from "../../components/AppMenu.vue";
-import AppHeader from "../../components/AppHeader.vue";
-import AppPage from "../../components/AppPage.vue";
 import NewBlog from "../../components/NewBlog.vue";
 
 export default {
@@ -29,7 +22,7 @@ export default {
     AppMenu,
     AppFooter,
     AppHeader,
-    AppPage,
+    ListSearch,
     NewBlog
   },
 };

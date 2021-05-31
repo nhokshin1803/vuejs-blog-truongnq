@@ -1,9 +1,23 @@
 <template>
   <div>
+    <AppHeader></AppHeader>
+    <AppMenu></AppMenu>
+    <AppFooter></AppFooter>
     <Nuxt />
   </div>
 </template>
-
+<script>
+import AppHeader from "../components/layouts/AppHeader"
+import AppMenu from "../components/layouts/AppMenu"
+import AppFooter from "../components/layouts/AppFooter"
+export default {
+  components: {
+    AppHeader,
+    AppFooter,
+    AppMenu
+  }
+}
+</script>
 <style>
 html {
   font-family:

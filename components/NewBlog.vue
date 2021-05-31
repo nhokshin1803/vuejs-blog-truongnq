@@ -1,6 +1,12 @@
 <template>
   <div class="card new-blog">
     <div class="card-body">
+      <div v-if="errors.length" class="bg-danger pl-2 pr-2 pt-2 pb-1">
+        <p v-for="error in errors" :key="error">
+          {{ error }}
+        </p>
+      </div>
+
       <form>
         <div class="form-group">
           <label for="headerInput">Tiêu đề</label>
@@ -35,13 +41,13 @@
         </div>
         <div class="form-group">
           <label>Vị trí:</label><br />
-          <input type="checkbox" id="2" value="2" v-model="vietNam" />
+          <input type="checkbox" id="2" value=2 v-model="blog.position" />
           <label for="2">Việt Nam</label>
-          <input type="checkbox" id="1" value="1" v-model="chauA" />
+          <input type="checkbox" id="1" value=1 v-model="blog.position" />
           <label for="1">Châu Á</label>
-          <input type="checkbox" id="3" value="3" v-model="chauAu" />
+          <input type="checkbox" id="3" value=3 v-model="blog.position" />
           <label for="3">Châu Âu</label>
-          <input type="checkbox" id="4" value="4" v-model="chauMy" />
+          <input type="checkbox" id="4" value=4 v-model="blog.position" />
           <label for="4">Châu Mỹ</label>
         </div>
         <div class="form-group">
@@ -95,17 +101,14 @@
       </form>
     </div>
     <div class="card-footer d-flex justify-content-center">
-      <button @click="addNewPost" class="btn-submit">Submit</button>&nbsp;
-      <button class="btn-clear" @click="clearForm">Clear</button>
+      <button @click="createEditPost" class="btn-submit">Submit</button>&nbsp;
+      <button class="btn-clear" @click="resetPage">Clear</button>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
-import VueAxios from "vue-axios";
-Vue.use(VueAxios, axios);
 export default {
   props: {
     paramId: 0
@@ -120,66 +123,51 @@ export default {
         position: new Array(),
         public: Boolean,
         category: Number,
-        data_pubblic: Date
+        data_pubblic: Date.now()
       },
-      vietNam: Boolean,
-      chauA: Boolean,
-      chauAu: Boolean,
-      chauMy: Boolean,
       isEdit: false,
       errors: []
     };
   },
 
   mounted() {
-    Vue.axios.get("http://localhost:3000/blogs/" + this.paramId).then(resp => {
+    axios.get("http://localhost:3000/blogs/" + this.paramId).then(resp => {
       this.blog = resp.data;
       this.isEdit = true;
     });
-    this.vietNam = this.blog.position.includes(2);
-    this.chauA = this.blog.position.includes(1);
-    this.chauAu = this.blog.position.includes(3);
-    this.chauMy = this.blog.position.includes(4);
     return this.blog;
   },
   methods: {
-    clearForm: function() {
-      var clearValidator = confirm("Are you sure to refresh page?");
-      if (clearValidator) {
+    resetPage: function() {
+      var isReset = confirm("Are you sure to refresh page?");
+      if (isReset) {
         location.reload();
       }
     },
 
-    checkForm: function() {
+    checkForm: function(errorCount) {
+      this.errors = [];
+      errorCount = 0;
       if(!this.blog.title) {
         this.errors.push('Title required');
+        errorCount++;
       }
       if(!this.blog.des) {
         this.errors.push('Description required');
+        errorCount++;
       }
       if(!this.blog.detail) {
         this.errors.push('Detail required');
+        errorCount++;
       }
       if(!this.blog.position) {
         this.errors.push('Position required');
+        errorCount++;
       }
     },
 
-    positionHandler: function() {
-      if (this.vietNam) {
-        this.blog.position.push(2);
-      }
-      if (this.chauA) {
-        this.blog.position.push(1);
-      }
-      if (this.chauAu) {
-        this.blog.position.push(3);
-      }
-      if (this.chauMy) {
-        this.blog.position.push(4);
-      }
-    },
-    addNewPost: function() {
+    createEditPost: function() {
+      this.blog.position = this.blog.position.map(x=>parseInt(x));
       if (this.isEdit) {
         let confirmer = confirm("Are you sure to edit this post?");
         if (confirmer) {
@@ -187,39 +175,22 @@ export default {
             "http://localhost:3000/blogs/" + this.paramId,
             this.blog
           );
-          location.reload();
+          this.$router.push('/');
         }
       } else {
         let errorCount = 0;
-        if(!this.blog.title) {
-          this.errors.push('Title required');
-          errorCount++;
-        }
-        if(!this.blog.des) {
-          this.errors.push('Description required');
-          errorCount++;
-        }
-        if(!this.blog.detail) {
-          this.errors.push('Detail required');
-          errorCount++;
-        }
-        if(!this.blog.position) {
-          this.errors.push('Position required');
-          errorCount++;
-        }
+        this.checkForm(errorCount);
         if(errorCount == 0) {
           let confirmation = confirm("Are you sure to submit?");
           if (confirmation) {
           Vue.axios.post("http://localhost:3000/blogs/", this.blog);
           this.blog.position = [];
-          location.reload();
+          this.$router.push('/');
           }
         }
         else {
-          alert(this.errors.join("\n"));
-          this.errors = [];
+          window.scrollTo(0, 0);
         }
-
       }
     },
 
@@ -271,3 +242,4 @@ export default {
   background-color: #017cff;
 }
 </style>
+

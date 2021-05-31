@@ -1,37 +1,37 @@
 [
   {
-    "name": "list",
-    "path": "/list",
-    "component": "E:\\\\vuejs-blog\\\\pages\\\\list.vue",
-    "chunkName": "pages/list",
-    "_name": "_5215c2ef"
+    "name": "blogs-list",
+    "path": "/blogs/list",
+    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\blogs\\\\list.vue",
+    "chunkName": "pages/blogs/list",
+    "_name": "_eac14d8e"
   },
   {
-    "name": "new",
-    "path": "/new",
-    "component": "E:\\\\vuejs-blog\\\\pages\\\\new.vue",
-    "chunkName": "pages/new",
-    "_name": "_4d551b42"
+    "name": "blogs-new",
+    "path": "/blogs/new",
+    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\blogs\\\\new.vue",
+    "chunkName": "pages/blogs/new",
+    "_name": "_257aead5"
   },
   {
-    "name": "search",
-    "path": "/search",
-    "component": "E:\\\\vuejs-blog\\\\pages\\\\search.vue",
-    "chunkName": "pages/search",
-    "_name": "_228b18b9"
+    "name": "blogs-search",
+    "path": "/blogs/search",
+    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\blogs\\\\search.vue",
+    "chunkName": "pages/blogs/search",
+    "_name": "_5f084483"
   },
   {
     "name": "posts-id",
     "path": "/posts/:id?",
-    "component": "E:\\\\vuejs-blog\\\\pages\\\\posts\\\\_id.vue",
+    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\posts\\\\_id.vue",
     "chunkName": "pages/posts/_id",
-    "_name": "_701de550"
+    "_name": "_345a4d26"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "E:\\\\vuejs-blog\\\\pages\\\\index.vue",
+    "component": "E:\\\\vuejs-blog-truongnq\\\\pages\\\\index.vue",
     "chunkName": "pages/index",
-    "_name": "_0c171ad1"
+    "_name": "_4c1d54c8"
   }
 ]

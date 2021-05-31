@@ -18,22 +18,25 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="item in list" v-bind:key="item.id">
-              <td>{{ item.id }}</td>
-              <td style="max-width: 200px">{{ item.title }}</td>
-              <td>{{ getCategory(item.category) }}</td>
-              <td style="min-width: 40px">{{ isPublic(item.public) }}</td>
+            <tr v-for="post in postList" v-bind:key="post.id">
+              <td>{{ post.id }}</td>
+              <td style="max-width: 200px">{{ post.title }}</td>
+              <td>{{ getCategory(post.category) }}</td>
+              <td style="min-width: 40px">{{ isPublic(post.public) }}</td>
               <td>
-                <span>{{ getPosition(item.position) }}</span>
+                <span>{{ getPosition(post.position) }}</span>
               </td>
-              <td>{{ item.data_pubblic }}</td>
+              <td>{{ post.data_pubblic }}</td>
               <td>
-                <nuxt-link :to="`/posts/${item.id}`" class="btn-edit d-flex justify-content-center">
-                  Edit
+
+                <nuxt-link :to="`/posts/${post.id}`">
+                  <button class="btn-outline-success d-flex justify-content-center rounded">
+                    Edit
+                  </button>
                 </nuxt-link>
               </td>
               <td>
-                <button class="btn-delete" @click="deletePost(item.id)">
+                <button class="btn-outline-danger d-flex justify-content-center rounded" @click="deletePost(post.id)">
                   Delete
                 </button>
               </td>
@@ -45,70 +48,64 @@
 </template>
 
 <script>
-import Vue from "vue";
 import axios from "axios";
-import VueAxios from "vue-axios";
-Vue.use(VueAxios, axios);
+import { CATEGORIES } from "../constants";
+import { POSITIONS } from "../constants"
 export default {
+  props: {
+    postList: Array()
+  },
   data() {
     return {
-      list: [],
-      positions: [],
-      categories: [
-        "Kinh Doanh",
-        "Giải Trí",
-        "Tiền Tệ",
-        "Thời Sự",
-        "Thế Giới",
-        "Khoa Học",
-        "Drama",
-        "Hàng Không",
-        "Vũ Trụ",
-        "Chứng Khoán",
-        "Chính Trị",
-        "Thể Thao",
-        "Điện Ảnh"
-      ],
+      postList: [],
+      positions: new Array(),
       public: Boolean
     };
   },
-  mounted() {
-    Vue.axios.get("http://localhost:3000/blogs").then(resp => {
-      this.list = resp.data;
-    });
-    this.$root.$on('change_search', (searchKey) => {
-      Vue.axios.get("http://localhost:3000/blogs?title_like=" + searchKey).then(resp => {
-        this.list = resp.data;
-      });
-    });
-  },
+  // mounted() {
+  //   axios.get("http://localhost:3000/blogs").then(resp => {
+  //     this.postList = resp.data;
+  //   });
+  //   this.$root.$on('change_search', (searchKey) => {
+  //     axios.get("http://localhost:3000/blogs?title_like=" + searchKey).then(resp => {
+  //       this.postList = resp.data;
+  //     });
+  //   });
+  // },
   methods: {
-    getPosition: function(array) {
-      if (array.includes(2)) this.positions.push("Việt Nam");
-      if (array.includes(1)) this.positions.push("Châu Á");
-      if (array.includes(3)) this.positions.push("Châu Âu");
-      if (array.includes(4)) this.positions.push("Châu Mỹ");
+    getPosition: function(positionArr) {
+      positionArr.forEach(position =>
+        this.positions.push(POSITIONS[position-1])
+      );
       var outputPosition = this.positions.join(", ");
       this.positions = [];
       return outputPosition;
     },
 
     getCategory: function(number) {
-      return this.categories[number];
+      return CATEGORIES[number];
+    },
+
+    isPublic: function(isPublic) {
+      return isPublic ? "Yes" : "No";
     },
 
     deletePost: function(id) {
       Vue.axios.delete("http://localhost:3000/blogs/" + id);
       location.reload();
-    },
-
-    isPublic: function(isPublic) {
-      return isPublic ? "Yes" : "No";
     }
   },
+
 };
 </script>
 <style>
+
+button {
+  height: 2.25rem;
+  line-height: 2rem;
+  background-color: #fff;
+}
+
 .blog-list {
   position: relative;
   width: 100%;
@@ -131,16 +128,4 @@ td {
   justify-content: center;
 }
 
-.btn-edit {
-  background-color: #fff;
-  border: 2px solid #addab5;
-  color: #addab5;
-  font-weight: 600;
-}
-.btn-delete {
-  background-color: #fff;
-  border: 2px solid #f3c2c5;
-  color: #f3c2c5;
-  font-weight: 600;
-}
 </style>

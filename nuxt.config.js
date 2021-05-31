@@ -41,30 +41,39 @@ export default {
     modules: [
         // https://go.nuxtjs.dev/bootstrap
         'bootstrap-vue/nuxt',
+        '@nuxtjs/axios'
     ],
+    axios: {
+        // proxy: true
+    },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
     router: {
         routes: [{
                 name: 'posts-id',
-                path: '/posts/:id?',
+                path: 'blogs/posts/:id?',
                 component: 'pages/posts/_id.vue'
             },
             {
                 name: 'list',
-                path: '/list',
-                component: 'pages/list.vue'
+                path: '/blogs/list',
+                component: 'pages/blogs/list.vue'
             },
             {
                 name: 'new',
-                path: '/new',
-                component: 'pages/new.vue'
+                path: '/blogs/new',
+                component: 'pages/blogs/new.vue'
             },
             {
                 name: 'search',
-                path: '/search',
-                component: 'pages/search.vue'
+                path: '/blogs/search',
+                component: 'pages/blogs/search.vue'
+            },
+            {
+                name: 'index',
+                path: '/',
+                component: 'pages/blogs/index.vue'
             }
         ]
     }

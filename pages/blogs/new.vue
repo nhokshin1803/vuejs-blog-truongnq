@@ -1,30 +1,19 @@
 <template>
   <div class="container vue-page">
-    <AppHeader></AppHeader>
-    <AppMenu></AppMenu>
     <div class="background">
       <div>
         <h5>New Blogs</h5>
       </div>
       <NewBlog></NewBlog>
     </div>
-    <AppFooter></AppFooter>
   </div>
 </template>
 
 <script>
-import AppFooter from "../components/AppFooter.vue";
-import AppMenu from "../components/AppMenu.vue";
-import AppHeader from "../components/AppHeader.vue";
-import AppPage from "../components/AppPage.vue";
-import NewBlog from "../components/NewBlog.vue";
+import NewBlog from "../../components/NewBlog.vue";
 export default {
   props: {},
   components: {
-    AppMenu,
-    AppFooter,
-    AppHeader,
-    AppPage,
     NewBlog
   }
 };

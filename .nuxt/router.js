@@ -4,11 +4,11 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
-const _5215c2ef = () => interopDefault(import('..\\pages\\list.vue' /* webpackChunkName: "pages/list" */))
-const _4d551b42 = () => interopDefault(import('..\\pages\\new.vue' /* webpackChunkName: "pages/new" */))
-const _228b18b9 = () => interopDefault(import('..\\pages\\search.vue' /* webpackChunkName: "pages/search" */))
-const _701de550 = () => interopDefault(import('..\\pages\\posts\\_id.vue' /* webpackChunkName: "pages/posts/_id" */))
-const _0c171ad1 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
+const _eac14d8e = () => interopDefault(import('..\\pages\\blogs\\list.vue' /* webpackChunkName: "pages/blogs/list" */))
+const _257aead5 = () => interopDefault(import('..\\pages\\blogs\\new.vue' /* webpackChunkName: "pages/blogs/new" */))
+const _5f084483 = () => interopDefault(import('..\\pages\\blogs\\search.vue' /* webpackChunkName: "pages/blogs/search" */))
+const _345a4d26 = () => interopDefault(import('..\\pages\\posts\\_id.vue' /* webpackChunkName: "pages/posts/_id" */))
+const _4c1d54c8 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
 const emptyFn = () => {}
 
@@ -22,24 +22,24 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
-    path: "/list",
-    component: _5215c2ef,
-    name: "list"
+    path: "/blogs/list",
+    component: _eac14d8e,
+    name: "blogs-list"
   }, {
-    path: "/new",
-    component: _4d551b42,
-    name: "new"
+    path: "/blogs/new",
+    component: _257aead5,
+    name: "blogs-new"
   }, {
-    path: "/search",
-    component: _228b18b9,
-    name: "search"
+    path: "/blogs/search",
+    component: _5f084483,
+    name: "blogs-search"
   }, {
     path: "/posts/:id?",
-    component: _701de550,
+    component: _345a4d26,
     name: "posts-id"
   }, {
     path: "/",
-    component: _0c171ad1,
+    component: _4c1d54c8,
     name: "index"
   }],
 

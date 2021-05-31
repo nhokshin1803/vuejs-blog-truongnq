@@ -12,9 +12,10 @@ import { setContext, getLocation, getRouteData, normalizeError } from './utils'
 
 /* Plugins */
 
-import nuxt_plugin_plugin_011bd754 from 'nuxt_plugin_plugin_011bd754' // Source: .\\components\\plugin.js (mode: 'all')
-import nuxt_plugin_bootstrapvue_6e2c20a6 from 'nuxt_plugin_bootstrapvue_6e2c20a6' // Source: .\\bootstrap-vue.js (mode: 'all')
-import nuxt_plugin_fontawesome_4655710e from 'nuxt_plugin_fontawesome_4655710e' // Source: .\\fontawesome.js (mode: 'all')
+import nuxt_plugin_plugin_176dd716 from 'nuxt_plugin_plugin_176dd716' // Source: .\\components\\plugin.js (mode: 'all')
+import nuxt_plugin_bootstrapvue_d601d372 from 'nuxt_plugin_bootstrapvue_d601d372' // Source: .\\bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_axios_30685fd0 from 'nuxt_plugin_axios_30685fd0' // Source: .\\axios.js (mode: 'all')
+import nuxt_plugin_fontawesome_d5099d4c from 'nuxt_plugin_fontawesome_d5099d4c' // Source: .\\fontawesome.js (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -178,16 +179,20 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
-  if (typeof nuxt_plugin_plugin_011bd754 === 'function') {
-    await nuxt_plugin_plugin_011bd754(app.context, inject)
+  if (typeof nuxt_plugin_plugin_176dd716 === 'function') {
+    await nuxt_plugin_plugin_176dd716(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_bootstrapvue_6e2c20a6 === 'function') {
-    await nuxt_plugin_bootstrapvue_6e2c20a6(app.context, inject)
+  if (typeof nuxt_plugin_bootstrapvue_d601d372 === 'function') {
+    await nuxt_plugin_bootstrapvue_d601d372(app.context, inject)
   }
 
-  if (typeof nuxt_plugin_fontawesome_4655710e === 'function') {
-    await nuxt_plugin_fontawesome_4655710e(app.context, inject)
+  if (typeof nuxt_plugin_axios_30685fd0 === 'function') {
+    await nuxt_plugin_axios_30685fd0(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_fontawesome_d5099d4c === 'function') {
+    await nuxt_plugin_fontawesome_d5099d4c(app.context, inject)
   }
 
   // Lock enablePreview in context

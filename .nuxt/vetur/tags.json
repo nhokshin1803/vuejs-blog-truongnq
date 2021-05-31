@@ -1,26 +1,26 @@
 {
-  "AppFooter": {
-    "description": "Auto imported from components/AppFooter.vue"
-  },
-  "AppHeader": {
-    "description": "Auto imported from components/AppHeader.vue"
-  },
-  "AppMenu": {
-    "description": "Auto imported from components/AppMenu.vue"
-  },
-  "AppPage": {
-    "description": "Auto imported from components/AppPage.vue"
-  },
   "BlogList": {
     "description": "Auto imported from components/BlogList.vue"
   },
   "BlogSearch": {
     "description": "Auto imported from components/BlogSearch.vue"
   },
+  "ListSearch": {
+    "description": "Auto imported from components/ListSearch.vue"
+  },
   "Logo": {
     "description": "Auto imported from components/Logo.vue"
   },
   "NewBlog": {
     "description": "Auto imported from components/NewBlog.vue"
+  },
+  "LayoutsAppFooter": {
+    "description": "Auto imported from components/layouts/AppFooter.vue"
+  },
+  "LayoutsAppHeader": {
+    "description": "Auto imported from components/layouts/AppHeader.vue"
+  },
+  "LayoutsAppMenu": {
+    "description": "Auto imported from components/layouts/AppMenu.vue"
   }
 }

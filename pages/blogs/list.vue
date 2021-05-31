@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import ListSearch from "../components/ListSearch";
+import ListSearch from "../../components/ListSearch.vue";
 export default {
   components: {
     ListSearch
